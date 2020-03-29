@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A cli for init project",
   "bin": {
-    "begin": "bin/begin.js"
+    "qay": "bin/qay"
   },
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
   },
   "keywords": [
     "cli",
-    "begin"
+    "qay"
   ],
   "author": "johnson",
   "license": "MIT",
