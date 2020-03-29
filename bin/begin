@@ -1,0 +1,15 @@
+#! /usr/bin/env node
+
+const program = require('commander');
+const { logPackageVersion } = require('../src/utils');
+
+logPackageVersion();
+
+program
+  .usage('<command> [options]')
+  .command('create [name]', 'init a project')
+  .parse(process.argv);
+
+program
+  .usage('<command> [options]')
+  .command('help', 'Man are brave')
