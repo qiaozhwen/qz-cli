@@ -3,13 +3,13 @@
 const program = require('commander');
 const { logPackageVersion } = require('../src/utils');
 
-logPackageVersion();
+
+
+program
+    .version(logPackageVersion(), '-v, --version')
+    .parse(process.argv);
 
 program
   .usage('<command> [options]')
-  .command('create [name]', 'init a project')
+  .command('init [name]', 'init a project')
   .parse(process.argv);
-
-program
-  .usage('<command> [options]')
-  .command('help', 'Man are brave')

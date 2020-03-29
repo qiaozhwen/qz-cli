@@ -1,6 +1,6 @@
 const path = require('path');
 const fse = require('fs-extra');
-const { INJECT_FILES } = require('./constants');
+const { INJECT_FILES } = require('./constant');
 
 function getRootPath() {
     return path.resolve(__dirname, './..');
@@ -12,10 +12,7 @@ function getPackageVersion() {
 }
 
 function logPackageVersion() {
-    const msg = `zero-cli version: ${getPackageVersion()}`;
-    console.log();
-    console.log(msg);
-    console.log();
+    return `qay-cli version: ${getPackageVersion()}`;
 }
 exports.logPackageVersion = logPackageVersion;
 

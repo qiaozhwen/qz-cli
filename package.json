@@ -1,9 +1,9 @@
 {
-  "name": "qz-cli",
+  "name": "qay-cli",
   "version": "1.0.0",
   "description": "A cli for init project",
   "bin": {
-    "begin": "bin/begin"
+    "begin": "bin/begin.js"
   },
   "main": "index.js",
   "scripts": {

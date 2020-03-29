@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const fse = require('fs-extra');
 const download = require('download-git-repo');
-const { TEMPLATE_GIT_REPO, INJECT_FILES } = require('./constants');
+const { TEMPLATE_GIT_RETO, INJECT_FILES } = require('../src/constant');
 const chalk = require('chalk');
 const ora = require('ora');
 const path = require('path');
@@ -91,11 +91,12 @@ Project.prototype.generate = function() {
     const { projectName, description } = this.config;
     const projectPath = path.join(process.cwd(), projectName);
     const downloadPath = path.join(projectPath, '__download__');
-
     const downloadSpinner = ora('正在下载模板，请稍等...');
     downloadSpinner.start();
     // 下载git repo
-    download(TEMPLATE_GIT_REPO, downloadPath, { clone: true }, (err) => {
+    download(TEMPLATE_GIT_RETO, downloadPath, { clone: true },
+        (err) => {
+        console.log('Unhandled Rejection at: Promise',err);
         if (err) {
             downloadSpinner.color = 'red';
             downloadSpinner.fail(err.message);
@@ -166,7 +167,8 @@ Project.prototype.generate = function() {
                 })
             })
         });
-    });
+    }
+    )
 }
 
 module.exports = Project;
