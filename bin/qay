@@ -7,7 +7,14 @@ const { logPackageVersion } = require('../src/utils');
 
 program
     .version(logPackageVersion(), '-v, --version')
+    .option('-c, --check', 'this is qz')
     .parse(process.argv);
+
+
+program.on('--help', function(){
+    console.log('Examples:');
+    console.log('qay init your project name');
+});
 
 program
   .usage('<command> [options]')
