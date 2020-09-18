@@ -1,6 +1,6 @@
 {
   "name": "qay-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A cli for init project",
   "bin": {
     "qay": "bin/qay"

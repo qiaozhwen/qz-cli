@@ -7,7 +7,8 @@ const { logPackageVersion } = require('../src/utils');
 
 program
     .version(logPackageVersion(), '-v, --version')
-    .option('-c, --check', 'this is qz')
+    .option('-c, --checks', 'this is qz')
+    .option('-d, --dump', 'this is qz')
     .parse(process.argv);
 
 
