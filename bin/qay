@@ -8,16 +8,34 @@ const { logPackageVersion } = require('../src/utils');
 program
     .version(logPackageVersion(), '-v, --version')
     .option('-c, --checks', 'this is qz')
-    .option('-d, --dump', 'this is qz')
+    .option('-d, --dump', 'this is qz1')
     .parse(process.argv);
 
 
-program.on('--help', function(){
-    console.log('Examples:');
-    console.log('qay init your project name');
-});
+// program
+//     .usage('<command> [options]')
+//     .command('open [url]', 'open')
+//     .parse(process.argv);
 
 program
   .usage('<command> [options]')
   .command('init [name]', 'init a project')
   .parse(process.argv);
+
+// program.option('-c, --checkFile <fileSource>', 'qz.txt', 'qz')
+// 检查文件，输出文件流
+program
+  .command('checkFile <source>')
+  .description('help you to read file🔧')
+  .action(function (source){
+    console.log('your file source', source);
+    checkFileFunc(source)
+  });
+
+program
+  .command('transFile <rule> <url>')
+  .description('think some rules to transform your code🚀')
+  .action(function (rule,url){
+    console.log('rule worked')
+    useRule(rule, url)
+  })
