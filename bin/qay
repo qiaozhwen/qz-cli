@@ -2,6 +2,9 @@
 
 const program = require('commander');
 const { logPackageVersion } = require('../src/utils');
+const checkFileFunc = require('../src/core/checkFile')
+const useRule = require('../src/core/useRules')
+const createWCF = require('../src/core/createOptionWeConfig')
 
 
 
@@ -9,7 +12,6 @@ program
     .version(logPackageVersion(), '-v, --version')
     .option('-c, --checks', 'this is qz')
     .option('-d, --dump', 'this is qz1')
-    .parse(process.argv);
 
 
 // program
@@ -20,7 +22,6 @@ program
 program
   .usage('<command> [options]')
   .command('init [name]', 'init a project')
-  .parse(process.argv);
 
 // program.option('-c, --checkFile <fileSource>', 'qz.txt', 'qz')
 // 检查文件，输出文件流
@@ -39,3 +40,12 @@ program
     console.log('rule worked')
     useRule(rule, url)
   })
+
+program
+  .command('wcf <url>')
+  .description('create common webpack config')
+  .action(function (url){
+    new createWCF(url)
+  })
+
+program.parse(process.argv);
