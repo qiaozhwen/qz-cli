@@ -5,7 +5,7 @@ const { logPackageVersion } = require('../src/utils');
 const checkFileFunc = require('../src/core/checkFile')
 const useRule = require('../src/core/useRules')
 const createWCF = require('../src/core/createOptionWeConfig')
-
+const fs = require('fs')
 
 
 program
@@ -42,10 +42,11 @@ program
   })
 
 program
-  .command('wcf <url>')
+  .command('wcf')
   .description('create common webpack config')
-  .action(function (url){
-    new createWCF(url)
+  .action(function (){
+    var wcfInit = new createWCF()
+    wcfInit.collectParam()
   })
 
 program.parse(process.argv);
