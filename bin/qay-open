@@ -1,0 +1,7 @@
+const program = require('commander');
+
+program
+    .option('--name [name]', '项目名称')
+    .option('--desc [description]', '项目介绍')
+    .parse(process.argv);
+console.log('正在打开...', process.argv)
